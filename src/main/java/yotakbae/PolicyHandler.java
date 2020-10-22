@@ -30,7 +30,8 @@ public class PolicyHandler{
             Iterator<PointAgg> iterator = pointAggRepository.findAll().iterator();
             while(iterator.hasNext()){
                 PointAgg pointTmp = iterator.next();
-                if(pointTmp.getMemberId() == delivered.getMemberId() && delivered.getStatus()=="Finish" ){
+                //if(pointTmp.getMemberId() == delivered.getMemberId() && delivered.getStatus()=="Finish" ){
+                if(pointTmp.getMemberId() == delivered.getMemberId() && delivered.getStatus().equals("Finish") ){
                     Optional<PointAgg> PointOptional = pointAggRepository.findById(pointTmp.getId());
                     PointAgg Pointagg = PointOptional.get();
                     Pointagg.setPoint(Pointagg.getPoint()+1000);
